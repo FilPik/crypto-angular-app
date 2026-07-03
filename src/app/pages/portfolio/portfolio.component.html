@@ -1,0 +1,21 @@
+<div class="balance-card">
+  <p>Dostępne środki</p>
+  <h1>{{ cryptoService.balance() }} USD</h1>
+</div>
+<h2>Twoje aktywa</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Symbol</th>
+    <th>Ilość</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (coin of cryptoService.boughtCoins(); track coin.symbol) {
+      <tr>
+        <td>{{coin.symbol}}</td>
+        <td>{{coin.amount}}</td>
+      </tr>
+    }
+  </tbody>
+</table>

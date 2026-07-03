@@ -1,0 +1,22 @@
+<table>
+  <thead>
+  <tr>
+    <th>Nazwa</th>
+    <th>Symbol</th>
+    <th>Cena</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (coin of cryptoService.cryptos(); track coin.id) {
+      <tr>
+        <td>{{ coin.name }}</td>
+        <td>{{ coin.symbol }}</td>
+        <td>{{ coin.price }} USD</td>
+        <td><input type="number" #amountInput></td>
+        <td><button (click)="cryptoService.buyCoin(coin,+amountInput.value)">KUP</button></td>
+      </tr>
+    }
+  </tbody>
+</table>
