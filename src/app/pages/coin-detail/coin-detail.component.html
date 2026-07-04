@@ -1,1 +1,28 @@
-<p>coin-detail works!</p>
+@if (selectedCoin()) {
+  <div class="coin-detail-container">
+
+    <div class="coin-split-layout">
+
+      <div class="coin-info-left">
+        <h2>{{ selectedCoin().name }} ({{ selectedCoin().symbol }})</h2>
+        <p class="coin-id">Identyfikator: <span>{{ selectedCoin().id }}</span></p>
+        <button class="back-btn" routerLink="/market">← Powrót do giełdy</button>
+      </div>
+
+      <div class="coin-chart-right">
+        <div class="mock-chart">
+          <span class="chart-placeholder">[ Miejsce na wykres ceny ]</span>
+        </div>
+
+        <div class="price-container">
+          <span class="price-label">Aktualna cena</span>
+          <span class="crypto-price-green">${{ selectedCoin().price | number:'1.2-2' }}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+} @else {
+  <p class="error-msg">Nie ma takiej monety</p>
+}

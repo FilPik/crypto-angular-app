@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: PortfolioComponent,
   },
   {
-    path:'coin/:id',
+    path:'coin/:symbol',
     component: CoinDetailComponent,
   }
 ];

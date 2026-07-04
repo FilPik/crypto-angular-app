@@ -59,4 +59,9 @@ export class CryptoService {
       alert('Brak kasy')
     }
   }
+
+  getCoinBySymbol(symbol: string){
+    return this.cryptos().find(coin => coin.symbol === symbol)
+  }
+
 }

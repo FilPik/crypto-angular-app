@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     @for (coin of cryptoService.cryptos(); track coin.id) {
-      <tr>
+      <tr [routerLink]="['/coin', coin.symbol.toLowerCase()]" class="coin-row">
         <td>{{ coin.name }}</td>
         <td>{{ coin.symbol }}</td>
         <td>{{ coin.price }} USD</td>
