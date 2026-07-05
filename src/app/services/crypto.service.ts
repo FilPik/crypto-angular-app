@@ -11,10 +11,10 @@ export class CryptoService {
   balance = signal(1000000);
   boughtCoins = signal<any[]>([]);
 
-  cryptos = signal([
-    { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC'},
-    { id: 'ethereum', name: 'Ethereum', symbol: 'ETH'}
-  ])
+  cryptos = signal<any[]>([
+    { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC', price: 0, history: [] },
+    { id: 'ethereum', name: 'Ethereum', symbol: 'ETH', price: 0, history: [] }
+  ]);
 
   constructor() {
     this.fetchCryptos();

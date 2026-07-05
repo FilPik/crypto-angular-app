@@ -9,7 +9,15 @@
   </tr>
   </thead>
   <tbody>
-    <input type="text" (input)="updateSearch($event)">
+  <div class="search-container">
+    <input
+      type="text"
+      (input)="updateSearch($event)"
+      class="search-input"
+      placeholder="Wyszukaj kryptowalutę (np. BTC, Solana)..."
+    >
+  </div>
+
     @for ( coin of filteredCryptos(); track coin.symbol) {
       <tr [routerLink]="['/coin', coin.symbol.toLowerCase()]" class="coin-row">
         <td>{{ coin.name }}</td>

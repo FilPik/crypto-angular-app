@@ -72,6 +72,42 @@ input[type="number"]:focus {
   border-color: #10b981;
 }
 
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3rem 0 2rem 0;
+  padding: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  color: #f8fafc;
+  outline: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    border-color: #3b82f6;
+    background: #1e293b;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.25),
+    0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+  }
+
+  &::placeholder {
+    color: #64748b; // Przygaszony kolor podpowiedzi (Slate 500)
+    font-size: 1rem;
+  }
+}
+
 button {
   background-color: #10b981;
   color: #ffffff;
