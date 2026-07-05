@@ -12,8 +12,8 @@ export class CryptoService {
   boughtCoins = signal<any[]>([]);
 
   cryptos = signal([
-    { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC', price: 65000 },
-    { id: 'ethereum', name: 'Ethereum', symbol: 'ETH', price: 35000 }
+    { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC'},
+    { id: 'ethereum', name: 'Ethereum', symbol: 'ETH'}
   ])
 
   constructor() {
@@ -26,16 +26,34 @@ export class CryptoService {
         const mappedCryptos = data.map(coin => {
           const cleanSymbol = coin.symbol.replace('USDT', '');
 
+
           return {
             id: cleanSymbol.toLowerCase(),
             name: cleanSymbol === 'BTC' ? 'Bitcoin' : cleanSymbol === 'ETH' ? 'Ethereum' : cleanSymbol === 'SOL' ? 'Solana' : 'BNB',
             symbol: cleanSymbol,
-            price: Number(coin.price)
+            price: Number(coin.price),
+            history: this.generateHistory(Number(coin.price))
           };
         });
         this.cryptos.set(mappedCryptos);
       },
     });
+  }
+
+  generateHistory(basePrice: number) {
+    const mockHistory = [];
+
+    for (let i = 10; i > 0; i--) {
+      const timeLabel = `${i}h temu`;
+      const randomPrice = basePrice * (1 + (Math.random() - 0.5) * 0.04);
+
+      mockHistory.push({
+        time: timeLabel,
+        price: randomPrice
+      });
+    }
+
+    return mockHistory;
   }
 
   buyCoin(coin: any, amount: number) {

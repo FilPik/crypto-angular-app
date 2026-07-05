@@ -9,7 +9,8 @@
   </tr>
   </thead>
   <tbody>
-    @for (coin of cryptoService.cryptos(); track coin.id) {
+    <input type="text" (input)="updateSearch($event)">
+    @for ( coin of filteredCryptos(); track coin.symbol) {
       <tr [routerLink]="['/coin', coin.symbol.toLowerCase()]" class="coin-row">
         <td>{{ coin.name }}</td>
         <td>{{ coin.symbol }}</td>
