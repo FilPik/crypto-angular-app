@@ -14,7 +14,7 @@
         <td>{{ coin.name }}</td>
         <td>{{ coin.symbol }}</td>
         <td>{{ coin.price }} USD</td>
-        <td><input type="number" #amountInput></td>
+        <td><input type="number" #amountInput (click)="$event.stopPropagation()"></td>
         <td><button (click)="cryptoService.buyCoin(coin,+amountInput.value)">KUP</button></td>
       </tr>
     }
